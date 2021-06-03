@@ -1,0 +1,26 @@
+﻿@page "/renderfragment"
+
+@inject IPersonRepository personRepo
+
+<RenderFragmentChildComp TList="Person" Items="Persons">
+    <Header>
+        <h4>This is a header</h4>
+    </Header>
+    <ListOfPersons>
+        <p>@context.Id</p>
+        <p>@context.FullName</p>
+        <p>@context.Email</p>        
+    </ListOfPersons>
+    <Footer>
+        <h4>This is a footer</h4>
+    </Footer>
+</RenderFragmentChildComp>
+
+@code{
+    private List<Person> Persons = new();
+
+    protected override void OnInitialized()
+    {
+        Persons = personRepo.GetPersonsByFilter();
+    }
+}

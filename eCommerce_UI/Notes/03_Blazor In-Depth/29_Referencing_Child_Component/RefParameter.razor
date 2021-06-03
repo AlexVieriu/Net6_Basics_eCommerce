@@ -1,0 +1,16 @@
+﻿@page "/refparameter"
+
+<input type="button" class="btn btn-primary m-2" value="Visible" @onclick="ChangeVisibility" />
+<br />
+
+<RefParameterChild @ref="Visibility" />
+
+
+@code{
+    public RefParameterChild Visibility { get; set; }
+
+    public void ChangeVisibility()
+    {
+        this.Visibility.Setbisibility();      
+    }
+}

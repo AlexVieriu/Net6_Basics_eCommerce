@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\eShop.CoreBusiness\eShop.CoreBusiness.csproj" />
+    <ProjectReference Include="..\eShop.DataStore.HardCoded\eShop.DataStore.HardCoded.csproj" />
+    <ProjectReference Include="..\eShop.UseCases\eShop.UseCases.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Notes\04_Dependency Injection\" />
+  </ItemGroup>
+
+</Project>

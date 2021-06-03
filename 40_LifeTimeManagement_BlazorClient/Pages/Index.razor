@@ -1,0 +1,60 @@
+﻿@page "/"
+
+@inject ITransient _tran1
+@inject ITransient _tran2
+@inject IScoped _scop1
+@inject IScoped _scop2
+@inject ISingleton _single1
+@inject ISingleton _single2
+
+<table class="table-bordered">
+    <tbody>
+        <tr>
+            <td>Transient 1</td>
+            <td>@tran1</td>
+        </tr>
+        <tr>
+            <td>Transient 2</td>
+            <td>@tran2</td>
+        </tr>
+        <tr>
+            <td>Scoped 1</td>
+            <td>@scop1</td>
+        </tr>
+        <tr>
+            <td>Scoped 2</td>
+            <td>@scop2</td>
+        </tr>
+        <tr>
+            <td>Singleton 1</td>
+            <td>@single1</td>
+        </tr>
+        <tr>
+            <td>Singleton 2</td>
+            <td>@single2</td>
+        </tr>
+    </tbody>
+    
+</table>
+
+
+@code{ 
+
+    private string tran1;
+    private string tran2;
+    private string scop1;
+    private string scop2;
+    private string single1;
+    private string single2;
+
+    protected override void OnInitialized()
+    {
+        tran1 = _tran1.GetGuid();
+        tran2 = _tran2.GetGuid();
+        scop1 = _scop1.GetGuid();
+        scop2 = _scop2.GetGuid();
+        single1 = _single1.GetGuid();
+        single2 = _single2.GetGuid();
+    }
+}
+

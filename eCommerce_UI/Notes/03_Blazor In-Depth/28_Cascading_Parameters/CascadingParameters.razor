@@ -1,0 +1,17 @@
+﻿@page "/cascadinparameters"
+
+<input type="button" value="Counter" class="btn btn-primary" @onclick="IncrementCounter">
+
+<CascadingValue Name="increasecounter" Value="counter">
+    <Component1/>
+</CascadingValue>
+
+
+@code{
+    private int counter { get; set; }
+
+    public void IncrementCounter()
+    {
+        counter++;
+    }
+}

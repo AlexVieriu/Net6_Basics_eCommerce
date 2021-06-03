@@ -1,0 +1,133 @@
+﻿@page "/databinding"
+@*
+    -> create a <label> and <textbox> to demonstrate one-way/two-way databinding
+    -> create a checkbox
+    -> create a radio button
+    -> create a select element DropDownList
+*@
+
+<h4>One way binding</h4>
+<p> Name: @Name</p>
+<br />
+<hr />
+
+<h4>Two way binding</h4>
+<input type="text" @bind-value="Name" @bind-value:event="oninput" />
+<br />
+<hr />
+
+<h4>CheckBox</h4>
+<input type="checkbox" @bind-value="isActive" />
+<span>@isActive</span>
+<br />
+<hr />
+
+
+<h4>Radio button</h4>
+<br />
+<div class="row">
+    <div class="col">
+        <strong>Input Method</strong>
+        <div>
+            <p>Item Selected: @name</p>
+            <input type="radio" name="group" value="1" @onclick="@(() => name = "Alex")" /> Alex <br />
+            <input type="radio" name="group" value="2" @onclick="@(() => name = "Dumi")" /> Dumi
+        </div>
+    </div>
+
+
+    <div class="col">
+        <strong>Enum Method with Name </strong>
+        <EditForm Model="enumNames">
+            <p>Item selected: @(enumNames)</p>
+            <InputRadioGroup @bind-Value="(enumNames)">
+                @foreach (var item in (EnumNames[])Enum.GetValues(typeof(EnumNames)))
+                {
+                    <InputRadio Value="item" />
+                    <span>@item</span><br />
+                }
+            </InputRadioGroup>
+        </EditForm>
+    </div>
+
+
+    <div class="col">
+        <strong>Enum Method with values </strong>
+
+        <EditForm Model="enumNumbers">
+            <p>Item selected: @(enumNumbers)</p>
+            <InputRadioGroup @bind-Value="(enumNumbers)">
+                @foreach (var item in (EnumNames[])Enum.GetValues(typeof(EnumNames)))
+                {
+                    <InputRadio Value="(Convert.ToInt32(item))" />
+                    <span>@item</span><br />
+                }
+            </InputRadioGroup>
+        </EditForm>
+    </div>
+
+    <div class="col">
+        <strong>Class method</strong>
+        <EditForm Model="customer">
+            <p>Item Selected: @customer.Name</p>
+            <InputRadioGroup @bind-Value="customer.Name">
+                @foreach (var customer in customers)
+                {
+                    <InputRadio Value="customer.Name" />
+                    <span>@customer.Name</span><br />
+                }
+            </InputRadioGroup>
+        </EditForm>
+    </div>
+</div>
+<br />
+<hr />
+
+<h4>Drop Down List</h4>
+<div>
+    <select @bind="selectItem">
+        <option value="0"></option>
+        @foreach (var customer in customers)
+        {
+            <option value="@customer.Id">@customer.Name</option>
+        }
+    </select>
+</div>
+
+@code{
+    // One/Two way Binding
+    private string Name = "Alex";
+
+    // CheckBox
+    private bool isActive = false;
+
+    // Radio button
+    // Method 1
+    private string name;
+
+
+    // Method 2
+    public enum EnumNames { Alex, Dumi, Cristi }
+    int enumNumbers;
+    EnumNames enumNames = new();
+
+    // Method 3 + Drop Down List
+
+    public class Customer
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+
+    private List<Customer> customers = new()
+    {
+            new Customer() { Id = 1, Name = "Alex", Age = 32 },
+            new Customer() { Id = 2, Name = "Dumi", Age = 33 },
+            new Customer() { Id = 3, Name = "Cristi", Age = 42 }
+    };
+
+    public Customer customer = new();
+
+    private int selectItem = 0;
+}

@@ -1,0 +1,23 @@
+﻿<div class="row">
+    <input type="button" value="@ActionText" class="btn btn-primary" @onclick="Toggle" />
+    <br />
+    @if (!Collapsed)
+    {
+        @ChildContent
+    }
+</div>
+
+@code{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public bool Collapsed { get; set; }
+
+    string ActionText { get => Collapsed ? "Expand" : "Collapse"; }
+
+    void Toggle()
+    {
+        Collapsed = !Collapsed;
+    }
+}

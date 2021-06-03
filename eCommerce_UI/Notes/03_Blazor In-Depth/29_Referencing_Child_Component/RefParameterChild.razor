@@ -1,0 +1,15 @@
+﻿@if (Visible == true)
+{
+    <h5>Visible: @Visible</h5>
+}
+
+
+@code{
+    private bool Visible = true;
+
+    public void Setbisibility()
+    {
+        this.Visible = !this.Visible;
+        StateHasChanged();
+    }
+}

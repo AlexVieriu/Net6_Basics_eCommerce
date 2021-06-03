@@ -1,0 +1,41 @@
+﻿@page "/products"
+
+
+@inject ISearchProduct _searchProduct
+
+<SearchBarComp OnSearch="HandleProductFilter" />
+<br />
+
+<table class="table table-responsive">
+    <thead class="thead-dark">
+        <tr>
+            <th>Brand</th>
+            <th>Name</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody class="thead-light">
+        @if (Products != null && Products.Count > 0)
+        {
+            @foreach (var product in Products)
+            {
+                <ProductItemComp Product="product" />
+            }
+        }
+    </tbody>
+</table>
+
+
+@code{
+    public List<Product> Products { get; set; }
+
+    protected override void OnInitialized()
+    {
+        Products = _searchProduct.Execute();
+    }
+
+    private void HandleProductFilter(string filter)
+    {
+        Products = _searchProduct.Execute(filter);
+    }
+}

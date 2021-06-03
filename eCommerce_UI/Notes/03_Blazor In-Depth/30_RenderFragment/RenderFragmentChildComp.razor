@@ -1,0 +1,22 @@
+﻿@typeparam TList
+
+@Header
+@foreach (var person in Items)
+{
+    @ListOfPersons(person)
+}
+@Footer
+
+@code{
+    [Parameter]
+    public RenderFragment Header { get; set; }
+
+    [Parameter]
+    public RenderFragment Footer { get; set; }
+
+    [Parameter]
+    public List<TList> Items { get; set; }
+
+    [Parameter]
+    public RenderFragment<TList> ListOfPersons { get; set; }
+}
