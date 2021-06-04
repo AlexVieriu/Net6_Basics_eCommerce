@@ -10,8 +10,4 @@
     <ProjectReference Include="..\eShop.UseCases\eShop.UseCases.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Notes\04_Dependency Injection\" />
-  </ItemGroup>
-
 </Project>

@@ -11,19 +11,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShop.UseCases", "eShop.Use
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eShop.DataStore.HardCoded", "eShop.DataStore.HardCoded\eShop.DataStore.HardCoded.csproj", "{2247CF27-05F7-4FCE-90AD-0608B681A640}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Testing", "Testing\Testing.csproj", "{FF9BF76F-80B9-47F9-B307-D2D493CC2C3E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notes", "Notes", "{0F08546E-FA62-44E9-A85B-7CC5E3F7B75A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "31_32_WhenCompRender__CompLifeCycle", "31_32_WhenCompRender__CompLifeCycle\31_32_WhenCompRender__CompLifeCycle.csproj", "{96B2C450-9DC2-457A-8986-943D6196F5CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "36_Dependency Injection", "36_Dependency Injection\36_Dependency Injection.csproj", "{F1CFB3C7-2666-4110-83B5-770A97F7AA03}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "36_Dependency Injection", "36_Dependency Injection\36_Dependency Injection.csproj", "{F1CFB3C7-2666-4110-83B5-770A97F7AA03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "40_LifeTimeManagement_API", "40_LifeTimeManagement_API\40_LifeTimeManagement_API.csproj", "{B345D60D-0C77-4315-80F8-45753DD63934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "40_LifeTimeManagement_API", "40_LifeTimeManagement_API\40_LifeTimeManagement_API.csproj", "{B345D60D-0C77-4315-80F8-45753DD63934}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "40_LifeTimeManagement_BlazorServer", "40_LifeTimeManagement_BlazorServer\40_LifeTimeManagement_BlazorServer.csproj", "{73AEC899-4EE4-40A1-8BF0-7B56723743B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "40_LifeTimeManagement_BlazorServer", "40_LifeTimeManagement_BlazorServer\40_LifeTimeManagement_BlazorServer.csproj", "{73AEC899-4EE4-40A1-8BF0-7B56723743B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "40_LifeTimeManagement_BlazorClient", "40_LifeTimeManagement_BlazorClient\40_LifeTimeManagement_BlazorClient.csproj", "{A8303FC9-0F66-441A-B04B-435CE3B343E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "40_LifeTimeManagement_BlazorClient", "40_LifeTimeManagement_BlazorClient\40_LifeTimeManagement_BlazorClient.csproj", "{A8303FC9-0F66-441A-B04B-435CE3B343E0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,10 +45,6 @@ Global
 		{2247CF27-05F7-4FCE-90AD-0608B681A640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2247CF27-05F7-4FCE-90AD-0608B681A640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2247CF27-05F7-4FCE-90AD-0608B681A640}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FF9BF76F-80B9-47F9-B307-D2D493CC2C3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FF9BF76F-80B9-47F9-B307-D2D493CC2C3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FF9BF76F-80B9-47F9-B307-D2D493CC2C3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FF9BF76F-80B9-47F9-B307-D2D493CC2C3E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{96B2C450-9DC2-457A-8986-943D6196F5CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{96B2C450-9DC2-457A-8986-943D6196F5CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96B2C450-9DC2-457A-8986-943D6196F5CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
