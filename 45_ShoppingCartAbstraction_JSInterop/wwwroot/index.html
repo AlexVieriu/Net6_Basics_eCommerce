@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>45_ShoppingCartAbstraction_JSInterop</title>
+    <base href="/" />
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="45_ShoppingCartAbstraction_JSInterop.styles.css" rel="stylesheet" />
+</head>
+
+<!-- onresize="BodyResized() -->
+<!-- everytime the windows resize it call: BodyResized() -->
+
+<body onresize="BodyResized()">
+    <div id="app">Loading...</div>
+
+    <div id="blazor-error-ui">
+        An unhandled error has occurred.
+        <a href="" class="reload">Reload</a>
+        <a class="dismiss">🗙</a>
+    </div>
+
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script>
+        ////ex1:
+        //window.SetFocus = (Id) => {
+        //    setTimeout(internalFocus, 10, Id);
+        //};
+
+        //function internalFocus(Id) {
+        //    var element = document.getElementById(id);
+        //    if (element == null) {
+        //        setTimeout(internalFocus, 10, Id);
+        //        return;
+        //    }
+        //    element.focus();
+        //    element.select();
+        //}
+
+
+        //ex2:
+
+        var dotNetHelper
+
+        // resizing
+
+        function BodyResized() {
+            if (dotNetHelper == null) return;
+            dotNetHelper.invokeMethodAsync("WindowResized", window.innerWidth, window.innerHeight);
+        }
+
+        window.ForceResize = () => {
+            BodyResized();
+        }
+
+        window.RegisterMyPage = (dotNetObject) => {
+            if (dotNetHelper == null) {
+                dotNetHelper = dotNetObject;
+            }
+        }
+
+        window.ResizeElementAbsolute = (id, top, left, width, height) => {
+            var element = document.getElementById(id);
+            if (element != null) {
+                element.style.position = 'absolute';
+                element.style.top = top.toString() + "px";
+                element.style.left = left.toString() + "px";
+                element.style.width = width.toString() + "px";
+                element.style.height = height.toString() + "px";
+            }
+        }
+
+        window.GetElementWidth = (id) => {
+            var element = document.getElementById(id);
+            if (element != null) {
+                return element.clientWidth;
+            }
+            else
+                return 0;
+        }
+    </script>
+</body>
+</html>

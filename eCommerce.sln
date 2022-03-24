@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "40_LifeTimeManagement_Blazo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "40_LifeTimeManagement_BlazorClient", "40_LifeTimeManagement_BlazorClient\40_LifeTimeManagement_BlazorClient.csproj", "{A8303FC9-0F66-441A-B04B-435CE3B343E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "45_JSInterop", "45_JSInterop\45_JSInterop.csproj", "{E5244A4F-AD09-4D8E-A8D3-B00E9F62BE42}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +67,10 @@ Global
 		{A8303FC9-0F66-441A-B04B-435CE3B343E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8303FC9-0F66-441A-B04B-435CE3B343E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8303FC9-0F66-441A-B04B-435CE3B343E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5244A4F-AD09-4D8E-A8D3-B00E9F62BE42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5244A4F-AD09-4D8E-A8D3-B00E9F62BE42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5244A4F-AD09-4D8E-A8D3-B00E9F62BE42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5244A4F-AD09-4D8E-A8D3-B00E9F62BE42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{B345D60D-0C77-4315-80F8-45753DD63934} = {0F08546E-FA62-44E9-A85B-7CC5E3F7B75A}
 		{73AEC899-4EE4-40A1-8BF0-7B56723743B7} = {0F08546E-FA62-44E9-A85B-7CC5E3F7B75A}
 		{A8303FC9-0F66-441A-B04B-435CE3B343E0} = {0F08546E-FA62-44E9-A85B-7CC5E3F7B75A}
+		{E5244A4F-AD09-4D8E-A8D3-B00E9F62BE42} = {0F08546E-FA62-44E9-A85B-7CC5E3F7B75A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {967206CF-F734-41BA-B06F-2BF62BEF5FD1}

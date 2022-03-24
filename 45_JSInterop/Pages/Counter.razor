@@ -1,0 +1,22 @@
+﻿@page "/counter"
+
+@inject IDotnetToJS dotnetJS
+
+<h1>Counter</h1>
+
+<p>Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+
+@code{
+
+    private int currentCount = 0;
+    private async Task IncrementCount()
+    {
+        currentCount++;
+        Console.WriteLine($"Current count:{currentCount}");
+        await dotnetJS.PrintAsync(currentCount);
+    }
+}
+

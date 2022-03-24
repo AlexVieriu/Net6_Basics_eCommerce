@@ -1,0 +1,88 @@
+﻿@page "/"
+@inject IJSRuntime js
+@*Ex1 :*@
+@*
+
+    <button @onclick="ShowButtonClicked">Show Input</button>
+    <br />
+
+    @if (showInput)
+    {
+        <input class="m-1" id="MyInputText" />
+    }
+
+    @code{
+        bool showInput = false;
+        async Task ShowButtonClicked()
+        {
+            showInput = true;
+            // at the time we call the JS the page didn't render yet so the <input> doesn't exists
+            await js.InvokeVoidAsync("SetFocus", "MyInputText");
+        }
+    }
+*@
+
+
+@*Ex2 :*@
+
+<div id="MyBigDiv" style="background-color:antiquewhite;overflow:auto">
+    @for (int i = 0; i < 10; i++)
+    {
+        <div style="height:300px;width:300px;margin:100px;background-color:lightcoral">
+            Element &nbsp;@i.ToString();
+        </div>
+    }
+</div>
+<div id="FooterDiv" style="height:50px;padding:12px;background-color:white;">
+    Footer
+</div>
+
+@code{
+    [JSInvokable]
+    public async Task WindowsResized(int WindowWidth, int WindowHeight)
+    {
+        // Get div dimentions
+
+        var TopDivHeight = await js.InvokeAsync<int>("GetElementHeight", "TopDiv");
+        var TopDivWidth = await js.InvokeAsync<int>("GetElementWidth", "TopDiv");
+        var SideBarWidth = await js.InvokeAsync<int>("GetElementWidth", "SideBarDiv");
+        var SideBarHeight = await js.InvokeAsync<int>("GetElementHeight", "SideBarDiv");
+        var footerHeight = await js.InvokeAsync<int>("GetElementHeight", "FooterDiv");
+
+        int top = 0;
+        int left = 0;
+        int width = 0;
+        int height = 0;
+
+        // resize the big div
+        if (TopDivWidth == 0 && TopDivHeight == 0)
+        {
+            // no top div. Assume resized to small screen
+            top = SideBarHeight;
+            width = WindowWidth;
+            left = 0;
+        }
+        else
+        {
+            // normal size
+            top = TopDivHeight;
+            width = WindowWidth - SideBarWidth;
+            left = SideBarWidth;
+        }
+
+        height = WindowHeight - (top + footerHeight);
+        await js.InvokeVoidAsync("ResizeElementAbsolute", "MyBigDiv", top, left, width, height);
+
+        // place the footer
+        top = WindowHeight - footerHeight;
+        height = footerHeight;
+        await js.InvokeVoidAsync("ResizeElementAbsolute", "FooterDiv", top, left, width, height);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        var dotnetHelper = DotNetObjectReference.Create(this);
+        await js.InvokeVoidAsync("RegisterMyPage", dotnetHelper);
+        await js.InvokeVoidAsync("ForceResize");
+    }
+}

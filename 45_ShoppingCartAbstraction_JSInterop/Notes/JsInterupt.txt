@@ -1,0 +1,9 @@
+﻿1. Call JS
+2. Let JS call us
+-> pass a ref to the page and JS need to use that ref to call a method
+on that page
+
+
+wwwroot -> index.html
+Pages	-> Pages.razor
+Shared	-> MainLayout.razor
